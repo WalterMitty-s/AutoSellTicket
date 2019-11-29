@@ -25,10 +25,12 @@ module SellTicket_tb;
     reg clk;
     reg sure,nsure;
     reg ci1,ci5,ci10,ci50,ci100;
-    reg [1:0] ticketType,ticketCount;
+    reg [2:0] ticketType,ticketCount;
+    
     wire qian1,qian5,qian10,qian50;
     wire co1,co2,co3,co4;
     wire [7:0] moneyReturn;
+    wire beep;
     
     SellTicket SellTicketexample(
         .rst(rst),
@@ -50,6 +52,7 @@ module SellTicket_tb;
         .co2(co2),
         .co3(co3),
         .co4(co4),
+        .beep(beep),//
         .moneyReturn(moneyReturn)
         );
         
@@ -62,11 +65,6 @@ module SellTicket_tb;
     begin
         #20
         clk=~clk;
-    end
-    initial
-    begin
-        #3000
-        $finish;
     end
     initial
     begin
@@ -87,13 +85,13 @@ module SellTicket_tb;
         ci1=1;
         ci5=1;
         ci10=1;
-        ci50=1;
-        ci100=0; 
+        ci50=0;
+        ci100=1; 
     end
     initial
     begin
-        ticketType=2'b11;
-        ticketCount=2'b11;
+        ticketType=3'b011;
+        ticketCount=3'b011;
     end
 
 endmodule

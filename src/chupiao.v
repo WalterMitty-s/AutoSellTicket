@@ -24,8 +24,8 @@ module chupiao(
     input rst,//复位信号 高电平有效
     input clk,//时钟信号
     input en,//使能端 为1时将票类型，数量输入，为0时出票
-    input [1:0] ticket,//出票类型1,2,3
-    input [1:0] count,//出票数量1,2,3
+    input [2:0] ticket,//出票类型1,2,3
+    input [2:0] count,//出票数量1,2,3
     output co1,//出票数量 一个脉冲一张票，1类型
     output co2,//2类型
     output co3,//3类型
@@ -33,8 +33,8 @@ module chupiao(
     );
     
     reg [3:0] q=4'b0000;//对应票型
-    reg [1:0] ticketType;//票型
-    reg [1:0] ticketCount;//票数
+    reg [2:0] ticketType;//票型
+    reg [2:0] ticketCount;//票数
     
     always@(posedge clk,posedge rst,posedge en)
     begin

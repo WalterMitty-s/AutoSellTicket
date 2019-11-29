@@ -24,7 +24,7 @@ module chupiao_tb;
     reg rst;
     reg clk;
     reg en;
-    reg [1:0] ticket,count;
+    reg [2:0] ticket,count;
     wire co1,co2,co3,co4;
     chupiao chupiaoexample(
         .rst(rst),

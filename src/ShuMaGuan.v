@@ -23,7 +23,7 @@
 module ShuMaGuan(
     input [7:0] money,//输入金额
     input [7:0] moneyReturn,//找零金额
-    input [1:0] ticketType,ticketCount,//票的类型，数量
+    input [2:0] ticketType,ticketCount,//票的类型，数量
     input rst,
     input clk,//时钟
     output [7:0] an,//数码管显示某一个
@@ -37,6 +37,7 @@ module ShuMaGuan(
         .ticketCount(ticketCount),
         .moneyReturn(moneyReturn),
         .rst(rst),
+//        .clke(clke),
         .d7(d7),
         .d6(d6),
         .d5(d5),
@@ -58,7 +59,7 @@ module ShuMaGuan(
         .hex0(d0),
         .rst(rst),
         .clk(clk),
-        .dp_in(8'b11010110),
+        .dp_in(8'b11011010),
         .an(an),
         .sseg(sseg)
         );

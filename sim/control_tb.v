@@ -24,7 +24,7 @@ module control_tb;
     reg rst;
     reg clk;
     reg sure,nsure;
-    reg [1:0] ticketType,ticketCount;
+    reg [2:0] ticketType,ticketCount;
     reg [7:0] money;
     wire [7:0] moneyReturn;
     wire moneyFinish,ticketFinish;
@@ -59,7 +59,7 @@ module control_tb;
     end
     initial
     begin
-        money=10;
+        money=100;
     end
     initial
     begin

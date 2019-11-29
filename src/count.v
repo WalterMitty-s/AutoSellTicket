@@ -28,7 +28,10 @@ module count(
     input ci10,
     input ci50,
     input ci100,
+    input clk,//时钟   
+    output beep,//蜂鸣器
     output [7:0] cout//总金额
+ 
     );
     
     reg [3:0] q1=0,q5=0,q10=0,q50=0,q100=0;//各面值钱数量
@@ -94,5 +97,11 @@ module count(
     end 
     
     assign cout=q1 + 5*q5 + 10*q10 + 50*q50 + 100*q100;
+    assign key=ci1|ci5|ci10|ci50|ci100;
     
+    Music musicmd(
+        .key(key),
+        .clk(clk),
+        .beep(beep)
+        );
 endmodule
